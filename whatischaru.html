@@ -189,6 +189,29 @@
                 generateColors();
                 insertString(animateString(randomString(expand)));
             });
+
+
+            // generate  confetti on current mouse position every .5 seconds
+            setInterval(function() {
+                var x = Math.floor(Math.random() * window.innerWidth);
+                var y = Math.floor(Math.random() * window.innerHeight);
+                var size = Math.floor(Math.random() * 10);
+
+                var confetti = document.createElement("div");
+                confetti.style.position = "absolute";
+                confetti.style.left = x + "px";
+                confetti.style.top = y + "px";
+                confetti.style.width = size + "px";
+                confetti.style.height = size + "px";
+                confetti.style.borderRadius = "50%";
+                confetti.style.backgroundColor = "#fff";
+                // random opacity for confetti
+                confetti.style.opacity = Math.random();
+                document.body.appendChild(confetti);
+                setTimeout(function() {
+                    confetti.remove();
+                }, 2000);
+            }, 100);
       
       </script>
 </body>
